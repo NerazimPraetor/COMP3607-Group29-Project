@@ -18,7 +18,12 @@ public class JSONHandler implements InputHandler{
                 JsonObject obj = v.asJsonObject();
 
                 GameContent question = new GameContent(obj.getString("Category"), obj.getInt("Value"), obj.getString("Question"), obj.getJsonObject("Options").getString("A"), obj.getJsonObject("Options").getString("B"), obj.getJsonObject("Options").getString("C"), obj.getJsonObject("Options").getString("D"), obj.getString("CorrectAnswer").charAt(0));
+                questions.add(question);
             }
-         }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return questions;
     }
 }
