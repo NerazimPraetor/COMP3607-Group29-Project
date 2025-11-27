@@ -46,4 +46,8 @@ public class CSVHandler implements InputHandler, OutputHandler{
 
         return dataDump;
     }
+
+    public static String log(File f){
+        
+    }
 }
