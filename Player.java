@@ -1,5 +1,5 @@
 public class Player{
-    private String name;
+    private final String name;
     private int score;
 
     public Player(String name){
@@ -20,5 +20,10 @@ public class Player{
     public void addPoints(int value) {
         
         this.score += value;
+    }
+
+     public void removePoints(int value) {
+        
+        this.score -= value;
     }
 }
