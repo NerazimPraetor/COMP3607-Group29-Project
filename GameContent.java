@@ -7,8 +7,6 @@ public class GameContent{
     private String optionC;
     private String optionD;
     private char answer;
-    private boolean isAnswered;
-    private Player whoAnswered;
 
     public GameContent(String category, int value, String question, String optionA, String optionB, String optionC, String optionD, char answer){
         this.category = category;
@@ -19,8 +17,6 @@ public class GameContent{
         this.optionC = optionC;
         this.optionD = optionD;
         this.answer = answer;
-        this.isAnswered =  false;
-        this.whoAnswered = null;
     }
 
     public String getCategory(){
@@ -46,18 +42,5 @@ public class GameContent{
     }
     public char getAnswer(){
         return this.answer;
-    }
-    public boolean getIsAns(){
-        return this.isAnswered;
-    }
-    public String getWhoAns(){
-        return this.whoAnswered.getName();
-    }
-
-    public void setIsAns(){
-        this.isAnswered = true;
-    }
-    public void setWhoAns(Player player){
-        this.whoAnswered = player;
     }
 }

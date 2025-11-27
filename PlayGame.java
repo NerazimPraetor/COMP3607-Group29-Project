@@ -1,14 +1,26 @@
+import java.time.LocalDateTime;
 import java.util.*;
+
+
 
 public class PlayGame{
 
     private final GameManager manager;
     private final List <Player> players = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
+    private String playerID;
+    private String caseID; 
+    private static int gameID = 001;
+    private String activity;
+    private LocalDateTime timestamp;
+    private String result;
 
     public PlayGame(List <GameContent> gameContent){ // assuming File input is handled or can be updated once that logic is properly implemented 
         
         this.manager = new GameManager(gameContent);
+        this.playerID = "System";
+        this.caseID = "Game" + Integer.toString(gameID);
+        gameID ++;
     }
 
     public void addPlayer(Player p){
