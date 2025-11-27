@@ -8,8 +8,17 @@ public class Player{
         System.out.println("Player " + this.name + " added to the game.");
     }
 
-    public String getName() return this.name;
-    public int getScore() return this.score;
+    public String getName() {
+        return this.name;
+    }
 
-    public void addPoints(int value) this.score += value;
+    public int getScore() {
+        
+        return this.score;
+    }
+
+    public void addPoints(int value) {
+        
+        this.score += value;
+    }
 }
