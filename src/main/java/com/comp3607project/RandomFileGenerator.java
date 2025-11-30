@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Random;
 
 
-public class RandomFile {
+public class RandomFileGenerator {
 
     public static File pickFile(String dirPath) throws IOException{
 

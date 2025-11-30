@@ -1,6 +1,5 @@
 com\comp3607project\Game.class
 com\comp3607project\Subject.class
-com\comp3607project\RandomFile.class
 com\comp3607project\PlayGame.class
 com\comp3607project\JSONHandler.class
 com\comp3607project\XMLHandler.class

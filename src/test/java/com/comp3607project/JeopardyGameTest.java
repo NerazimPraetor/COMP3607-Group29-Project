@@ -335,14 +335,33 @@ public class JeopardyGameTest {
                 game.addObserver(logger);
 
                 LogData log = new LogData("Test001", "testPlayerID", "Testing",LocalDateTime.now(), "Test",0,"","",0);
-                game.notify(log, 0, "");
+                game.notify(log, "");
 
                 logger.generateEventLog("TestLogGenerated001");
 
-                assertTrue(logger.fileCreated());
+                assertTrue(logger.getIfEventFileExists());
 
-                System.out.println("Test that logs are created and stored in CSV file:\n Expected reults: true\nActual results: " + logger.fileCreated() + "\n");
+                System.out.println("Test that logs are created and stored in CSV file:\nExpected reults: true\nActual results: " + logger.getIfEventFileExists() + "\n");
+        }
 
+        //TESTS FOR REPORTING
+        @Test
+        public void testReporting(){
 
+                File file = new File("test.csv");
+                Game game = new Game(file);
+                GameLogger logger = new GameLogger();
+
+                game.addObserver(logger);
+
+                LogData log = new LogData("Test001", "testPlayerID", "Testing",LocalDateTime.now(), "Test",0,"","",0);
+                game.notify(log, "This is a test question?");
+
+                logger.generateReport();
+
+                assertTrue(logger.getIfReportFileExists());
+
+                System.out.println("Test that a game report is writtern to txt file:\nExpected reults: true\nActual results: " + logger.getIfReportFileExists() + "\n");
         }
 }
+

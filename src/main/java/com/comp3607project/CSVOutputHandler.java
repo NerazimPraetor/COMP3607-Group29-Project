@@ -1,9 +1,10 @@
 package com.comp3607project;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.util.List;
+
 import com.opencsv.CSVWriter;
-import com.opencsv.exceptions.CsvValidationException;
-import java.io.*;
-import java.util.*;
 
 public class CSVOutputHandler implements OutputHandler{
     @Override
@@ -18,7 +19,10 @@ public class CSVOutputHandler implements OutputHandler{
                 writer.writeNext(row);
             }
         } catch(Exception e){
+
             e.printStackTrace();
+           
+            
         }
     }   
 }

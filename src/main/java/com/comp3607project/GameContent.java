@@ -11,7 +11,7 @@ public class GameContent {
     private char answer;
 
     public GameContent(String category, int value, String question, String optionA, String optionB, String optionC, String optionD, char answer) {
-        this.category = category;
+        this.category = category.toLowerCase();
         this.value = value;
         this.question = question;
         this.optionA = optionA;

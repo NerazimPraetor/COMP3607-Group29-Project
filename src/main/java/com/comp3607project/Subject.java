@@ -4,5 +4,5 @@ public interface Subject {
     
     public void addObserver(Observer o);
     public void removeObserver(Observer o);
-    public void notify(LogData log, int turn, String question);
+    public void notify(LogData log, String question);
 }

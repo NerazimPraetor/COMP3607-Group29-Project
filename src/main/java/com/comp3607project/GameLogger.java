@@ -8,24 +8,27 @@ import java.util.List;
 public class GameLogger implements Observer{
 
     private final List<LogData> logs = new ArrayList<>();
-    private final CSVOutputHandler output =new CSVOutputHandler();
-    private  int turn;
-    private  String question;
-    private boolean fileCreated = false;
+    private final CSVOutputHandler output =new CSVOutputHandler(); 
+    private final List <String> question = new ArrayList<>();
+    private final List <Player> players = new ArrayList<>();
+    private boolean eventFileCreated = false;
+    private boolean reportFileCreated = false;
     
     @Override
-    public void update(LogData log, int turn, String question){
+    public void update(LogData log, String question){
 
         this.logs.add(log);
 
-        if (turn != 0){
-            this.turn = turn;
-        }
-
         if(!question.equals("")){
-            this.question = question;
+
+            this.question.add(question);
         }
 
+    }
+
+    public void setFinalPlayers(List <Player> p){
+
+        players.addAll(p);
     }
 
     public void generateEventLog(String id){
@@ -39,8 +42,8 @@ public class GameLogger implements Observer{
 
         if(eventLogFile.exists()){
 
-            fileCreated = true;
-             System.out.println("CVS Process Mining Log successfully generated.\n");
+            eventFileCreated = true;
+            System.out.println("CVS Process Mining Log successfully generated.\n");
         }
        
     }
@@ -55,8 +58,28 @@ public class GameLogger implements Observer{
         }
     }
 
-    public boolean fileCreated(){
+    public boolean getIfEventFileExists(){
 
-        return this.fileCreated;
+        return this.eventFileCreated;
+    }
+
+    public void generateReport(){
+
+        ReportWriter report = new ReportWriter();
+
+        File reportFile = new File("GameReport.txt");
+
+        report.write(logs, reportFile , question, players);
+
+         if(reportFile.exists()){
+
+            reportFileCreated = true;
+            System.out.println("Report generated.\n");
+        }
+    }
+
+    public boolean getIfReportFileExists(){
+
+        return this.reportFileCreated;
     }
 }

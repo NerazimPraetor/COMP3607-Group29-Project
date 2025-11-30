@@ -3,7 +3,7 @@ package com.comp3607project;
 import java.io.File;
 import java.io.IOException;
 
-import static com.comp3607project.RandomFile.pickFile;
+import static com.comp3607project.RandomFileGenerator.pickFile;
 
 public class PlayGame {
     public static void main(String[] args) {

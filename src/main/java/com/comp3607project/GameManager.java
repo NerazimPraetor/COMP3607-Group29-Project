@@ -64,6 +64,11 @@ public class GameManager{
 
     }
 
+    public boolean checkValidCategory(String c){
+
+        return gameContentsMap.containsKey(c);
+    }
+    
     public Set <String> getCategories(){
 
         if (gameContentsMap == null || gameContentsMap.isEmpty()){
