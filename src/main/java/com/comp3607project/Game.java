@@ -37,13 +37,13 @@ public class Game implements Subject{
     public void startGame(){
 
         LogData log = new LogData(caseID, playerID, "Load File", LocalDateTime.now(), "", 0 , "", "Success", 0);
-        notify(log, "");
+        notify(log);
 
         System.out.println("Welcome to the Jeopardy Game!");
 
         
         log = new LogData(caseID, playerID, "Start Game", LocalDateTime.now(), "", 0 , "", "", 0);
-        notify(log, "");
+        notify(log);
 
         System.out.println("Please enter the number of players (Max players 4):");
         int size = scanner.nextInt();
@@ -55,7 +55,7 @@ public class Game implements Subject{
         }
 
         log = new LogData(caseID, playerID, "Select Player Count", LocalDateTime.now(), "", 0 , Integer.toString(size), "N/A", 0);
-        notify(log, "");
+        notify(log);
 
         for(int i = 0; i<size; i++){
 
@@ -65,7 +65,7 @@ public class Game implements Subject{
             addPlayer(p);
 
             log = new LogData(caseID, playerID, "Enter Player Name", LocalDateTime.now(), "", 0 , name, "N/A", 0);
-            notify(log, "");
+            notify(log);
 
         }
 
@@ -139,7 +139,7 @@ public class Game implements Subject{
         }
 
         LogData log = new LogData(caseID, playerID, "Select Category", LocalDateTime.now(), c, 0 , "", "", 0);
-        notify(log, "");
+        notify(log);
 
 
         System.out.println("Chosen category: " + c);
@@ -152,7 +152,7 @@ public class Game implements Subject{
         System.out.println();
 
         log = new LogData(caseID, playerID, "Select Question", LocalDateTime.now(), c, value , "", "", 0);
-        notify(log, "");
+        notify(log);
 
         GameContent question = manager.getQuestionInfo(c.trim().toLowerCase(), value);
 
@@ -164,6 +164,7 @@ public class Game implements Subject{
 
         System.out.println("Your question for " + value + " points: "); 
         System.out.println(question.getQuestion());
+
         System.out.println("Your options: ");
         System.out.println("Option A: " + question.getA());
         System.out.println("Option B: " + question.getB());
@@ -172,7 +173,8 @@ public class Game implements Subject{
         System.out.println("Enter your choice: A, B, C or D. Or enter Q to end game.");
         char answerAsChar = scanner.next().charAt(0);
         scanner.nextLine();
-        String answerAsString = "";
+
+        String answerAsString = getAnswerAsString(answerAsChar, question);
 
         if(Character.toUpperCase(answerAsChar) == 'Q'){
             System.out.println("You have decided to quit.");
@@ -180,7 +182,18 @@ public class Game implements Subject{
             return;
         }
             
-        switch(answerAsChar){
+        String result = getResult(question, answerAsChar, value, c, p);
+    
+        log = new LogData(caseID, playerID, "Answer Question", LocalDateTime.now(), c, value , answerAsString, result, p.getScore());
+        notify(log);
+
+    }
+
+    public String getAnswerAsString(char ans, GameContent question){
+
+        String answerAsString = "";
+        
+        switch(Character.toUpperCase(ans)){
 
             case'A' :
                 answerAsString = question.getA();
@@ -196,25 +209,33 @@ public class Game implements Subject{
                 answerAsString = question.getD();
                 break;
         }
-        
+
+        return answerAsString;
+    }
+
+    public String getResult(GameContent question, char ans, int value, String c, Player p){
+
         String result;
-        if (Character.toUpperCase(question.getAnswer()) == Character.toUpperCase(answerAsChar)){
+
+        if (Character.toUpperCase(question.getAnswer()) == Character.toUpperCase(ans)){
+
             System.out.println("Correct!! You have earned " + value + " points.");
             p.addPoints(value);
+
             manager.markAsAnswered(question, c.trim().toLowerCase());
             result = "Correct";
            
         }else{
+
             System.out.println("Sorry incorrect answer. You have lost " + value + " points.");
             p.removePoints(value);
+
             manager.markAsAnswered(question, c.trim().toLowerCase());
             result = "Incorrect";
             
         }
 
-        log = new LogData(caseID, playerID, "Answer Question", LocalDateTime.now(), c, value , answerAsString, result, p.getScore());
-        notify(log, question.getQuestion());
-
+        return result;
     }
 
     public void endGame(){
@@ -227,7 +248,7 @@ public class Game implements Subject{
         }
 
         LogData log = new LogData(caseID, "System", "Exit Game", LocalDateTime.now(), "", 0 , "", "", 0);
-        notify(log, "");
+        notify(log);
 
         quitGame = true;
         scanner.close();
@@ -236,6 +257,7 @@ public class Game implements Subject{
             if(o instanceof GameLogger){
 
                 ((GameLogger) o).setFinalPlayers(players);
+                ((GameLogger) o).setAnsweredQuestions(manager.getAnsweredQuestions());
                 ((GameLogger) o).generateEventLog(caseID);
                 ((GameLogger) o).generateReport();
 
@@ -262,10 +284,10 @@ public class Game implements Subject{
     }
 
     @Override
-    public void notify(LogData log, String question){
+    public void notify(LogData log){
 
         for(Observer o:observers){
-            o.update(log, question);
+            o.update(log);
         }
     }
 

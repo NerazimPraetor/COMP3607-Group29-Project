@@ -4,6 +4,7 @@ import java.io.File;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -29,7 +30,7 @@ public class JeopardyGameTest {
                 List <GameContent> contents = inputHandler.parse(file);
 
                 assertEquals(25, contents.size());
-                assertEquals("Variables & Data Types", contents.getFirst().getCategory());
+                assertEquals("variables & data types", contents.getFirst().getCategory());
                 assertEquals(100, contents.getFirst().getValue());
                 assertEquals("Which of the following declares an integer variable in C++?", contents.getFirst().getQuestion());
                 assertEquals("int num;", contents.getFirst().getA());
@@ -40,7 +41,7 @@ public class JeopardyGameTest {
                 
 
                 System.out.println("CSV Valid File test:\nExpected number of questions: 25\nActual size of contents list: " + contents.size());
-                System.out.println("Expected category: Variables & Data Types\nActual category: " + contents.getFirst().getCategory());
+                System.out.println("Expected category: variables & data types\nActual category: " + contents.getFirst().getCategory());
                 System.out.println("Expected value: 100\nActual value: " + contents.getFirst().getValue());
                 System.out.println("Expected question: Which of the following declares an integer variable in C++?:\nActual question" + contents.getFirst().getQuestion());
                 System.out.println("Expected option A: int num\nActual option A: " + contents.getFirst().getA());
@@ -62,7 +63,7 @@ public class JeopardyGameTest {
                 List <GameContent> contents = inputHandler.parse(file);
 
                 assertEquals(25, contents.size());
-                assertEquals("Variables & Data Types", contents.getFirst().getCategory());
+                assertEquals("variables & data types", contents.getFirst().getCategory());
                 assertEquals(100, contents.getFirst().getValue());
                 assertEquals("Which of the following declares an integer variable in C++?", contents.getFirst().getQuestion());
                 assertEquals("int num;", contents.getFirst().getA());
@@ -72,7 +73,7 @@ public class JeopardyGameTest {
                 assertEquals('A', contents.getFirst().getAnswer());
 
                 System.out.println("JSON Valid File Test:\nExpected number of questions: 25\nActual size of contents list: " + contents.size());
-                System.out.println("Expected category: Variables & Data Types\nActual category: " + contents.getFirst().getCategory());
+                System.out.println("Expected category: variables & data types\nActual category: " + contents.getFirst().getCategory());
                 System.out.println("Expected value: 100\nActual value: " + contents.getFirst().getValue());
                 System.out.println("Expected question: Which of the following declares an integer variable in C++?:\nActual question" + contents.getFirst().getQuestion());
                 System.out.println("Expected option A: int num\nActual option A: " + contents.getFirst().getA());
@@ -93,7 +94,7 @@ public class JeopardyGameTest {
                 List <GameContent> contents = inputHandler.parse(file);
 
                 assertEquals(25, contents.size());
-                assertEquals("Variables & Data Types", contents.getFirst().getCategory());
+                assertEquals("variables & data types", contents.getFirst().getCategory());
                 assertEquals(100, contents.getFirst().getValue());
                 assertEquals("Which of the following declares an integer variable in C++?", contents.getFirst().getQuestion());
                 assertEquals("int num;", contents.getFirst().getA());
@@ -103,7 +104,7 @@ public class JeopardyGameTest {
                 assertEquals('A', contents.getFirst().getAnswer());
 
                 System.out.println("XML Valid File Test:\nExpected number of questions: 25\nActual size of contents list: " + contents.size());
-                System.out.println("Expected category: Variables & Data Types\nActual category: " + contents.getFirst().getCategory());
+                System.out.println("Expected category: variables & data types\nActual category: " + contents.getFirst().getCategory());
                 System.out.println("Expected value: 100\nActual value: " + contents.getFirst().getValue());
                 System.out.println("Expected question: Which of the following declares an integer variable in C++?:\nActual question" + contents.getFirst().getQuestion());
                 System.out.println("Expected option A: int num\nActual option A: " + contents.getFirst().getA());
@@ -145,7 +146,7 @@ public class JeopardyGameTest {
                 Set <String> categories = manager.getCategories();
                 String category = "Variables & Data Types";
 
-                assertTrue(categories.contains(category));
+                assertTrue(categories.contains(category.trim().toLowerCase()));
                 System.out.println("Test for valid category (Variables & Data Types):\nExpected Results: true\nActual Results: " + categories.contains(category) + "\n" );
 
         }
@@ -162,7 +163,8 @@ public class JeopardyGameTest {
                 List <GameContent> contents = inputHandler.parse(file);
                 GameManager manager = new GameManager(contents);
 
-                Set <Integer> values = manager.getValues("Arrays");
+                String category = "Arrays";
+                Set <Integer> values = manager.getValues(category.trim().toLowerCase());
                 int value = 100;
 
                 assertTrue(values.contains(value));
@@ -201,7 +203,8 @@ public class JeopardyGameTest {
                 List <GameContent> contents = inputHandler.parse(file);
                 GameManager manager = new GameManager(contents);
 
-                Set <Integer> values = manager.getValues("Arrays");
+                 String category = "Arrays";
+                Set <Integer> values = manager.getValues(category.trim().toLowerCase());
                 int value = 800;
 
                 assertFalse(values.contains(value));
@@ -220,10 +223,10 @@ public class JeopardyGameTest {
                 List <GameContent> contents = inputHandler.parse(file);
                 GameManager manager = new GameManager(contents);
 
-                String categoey = "Variables & Data Types";
+                String category = "Variables & Data Types";
                 int value = 100;
 
-                GameContent question = manager.getQuestionInfo(categoey, value);
+                GameContent question = manager.getQuestionInfo(category.trim().toLowerCase(), value);
 
                 assertTrue(question.getQuestion().equals(contents.getFirst().getQuestion()));
                 assertTrue(question.getQuestion().equals("Which of the following declares an integer variable in C++?"));
@@ -267,13 +270,13 @@ public class JeopardyGameTest {
                 List <GameContent> contents = inputHandler.parse(file);
                 GameManager manager = new GameManager(contents);
 
-                GameContent question = manager.getQuestionInfo("Arrays", 200);
+                GameContent question = manager.getQuestionInfo("arrays", 200);
 
-                manager.markAsAnswered(question, "Arrays");
+                manager.markAsAnswered(question, "arrays");
                 List<GameContent> answeredList = manager.getAnsweredQuestions(); 
                 
                 assertTrue(answeredList.contains(question));
-                assertNull(manager.getQuestionInfo("Arrays", 200));
+                assertNull(manager.getQuestionInfo("arrays", 200));
                 
                 System.out.println ("Test if question is removed from map when markAsAnswered is called and inserted into a new list:\nResults expected for map: null\nActual results for map: " + manager.getQuestionInfo("Arrays", 200) + "\nResults expected for list: true\n" + //
                 "Actual results for list: " + answeredList.contains(question) + " \n");
@@ -335,7 +338,7 @@ public class JeopardyGameTest {
                 game.addObserver(logger);
 
                 LogData log = new LogData("Test001", "testPlayerID", "Testing",LocalDateTime.now(), "Test",0,"","",0);
-                game.notify(log, "");
+                game.notify(log);
 
                 logger.generateEventLog("TestLogGenerated001");
 
@@ -346,17 +349,36 @@ public class JeopardyGameTest {
 
         //TESTS FOR REPORTING
         @Test
-        public void testReporting(){
+        public void testReporting() throws URISyntaxException{
 
-                File file = new File("test.csv");
-                Game game = new Game(file);
+                URL resourceUrl = getClass().getClassLoader().getResource("sample_game_XML.xml");
+                File file = new File(resourceUrl.toURI());
+
+                InputHandlerFactory input = new InputHandlerFactory();
+                InputHandler inputHandler = input.getInputHandler(file);
+
+                List <GameContent> contents = inputHandler.parse(file);
+                GameManager manager = new GameManager(contents);
+
+                for (GameContent g : contents){
+
+                        manager.markAsAnswered(g, g.getCategory());
+                }
+
                 GameLogger logger = new GameLogger();
-
+                Game game = new Game(file);
                 game.addObserver(logger);
 
-                LogData log = new LogData("Test001", "testPlayerID", "Testing",LocalDateTime.now(), "Test",0,"","",0);
-                game.notify(log, "This is a test question?");
+                LogData log = new LogData("Test001", "John", "Answer Question",LocalDateTime.now(), "Test",100,"testanswer","testresult",500);
+                game.notify(log);
 
+                List <Player> playerTestList = new ArrayList<>();
+                Player p1 = new Player("John");
+
+                playerTestList.add(p1);
+
+                logger.setFinalPlayers(playerTestList);
+                logger.setAnsweredQuestions(manager.getAnsweredQuestions());
                 logger.generateReport();
 
                 assertTrue(logger.getIfReportFileExists());

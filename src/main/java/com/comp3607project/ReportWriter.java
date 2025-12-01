@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ReportWriter {
     
-    public void write(List <LogData> logs, File f, List <String> q, List <Player> p){
+    public void write(List <LogData> logs, File f, List <GameContent> q, List <Player> p){
 
         try (FileWriter writer = new FileWriter(f)){
 
@@ -18,21 +18,22 @@ public class ReportWriter {
             writer.write(caseID);
             writer.write("Players:");
 
+            int count = 0;
             for (Player pl : p){
             
                 String playerName = pl.getName();
                 writer.write(playerName);
 
-                int pSize = p.size() - 1; 
                 
-                
-                if (pSize < 1 ){
+                if (count < p.size() - 1 ){
 
                     writer.write(",");
                 }
+
+                count++;
             }
 
-            writer.write("\n\nGamePlay Summary:");
+            writer.write("\n\nGamePlay Summary:\n");
             writer.write("-----------------\n");
 
             int turn = 1;
@@ -44,9 +45,9 @@ public class ReportWriter {
 
                     if (l.getActivity().equals("Answer Question")){
 
-                        writer.write("Turn " + Integer.toString(turn) + ": " + l.getPlayerID() + "selected " + l.getCategory() + " for " + l.getQuestionValue() + " pts\n");
-                        writer.write("Question: " + q.get(index));
-                        String answerRow = "Answer: " + l.getAnswerGiven() + " - " + l.getResult();
+                        writer.write("Turn " + Integer.toString(turn) + ": " + l.getPlayerID() + " selected " + l.getCategory() + " for " + l.getQuestionValue() + " pts\n");
+                        writer.write("Question: " + q.get(index).getQuestion());
+                        String answerRow = "\nAnswer: " + l.getAnswerGiven() + " - " + l.getResult();
 
                         if (l.getResult().equals("Correct")){
                             answerRow = answerRow + " (+" + Integer.toString(l.getQuestionValue()) + "pts)\n";
@@ -65,7 +66,7 @@ public class ReportWriter {
                     }  
                 }
             } 
-            writer.write("Final Scores: ");
+            writer.write("Final Scores: \n");
 
             for (Player pl: p){
 

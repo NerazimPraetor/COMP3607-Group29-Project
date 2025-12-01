@@ -9,26 +9,25 @@ public class GameLogger implements Observer{
 
     private final List<LogData> logs = new ArrayList<>();
     private final CSVOutputHandler output =new CSVOutputHandler(); 
-    private final List <String> question = new ArrayList<>();
+    private final List <GameContent> questions = new ArrayList<>();
     private final List <Player> players = new ArrayList<>();
     private boolean eventFileCreated = false;
     private boolean reportFileCreated = false;
     
     @Override
-    public void update(LogData log, String question){
+    public void update(LogData log){
 
         this.logs.add(log);
-
-        if(!question.equals("")){
-
-            this.question.add(question);
-        }
-
     }
 
     public void setFinalPlayers(List <Player> p){
 
         players.addAll(p);
+    }
+
+    public void setAnsweredQuestions(List <GameContent> q){
+
+        questions.addAll(q);
     }
 
     public void generateEventLog(String id){
@@ -69,7 +68,7 @@ public class GameLogger implements Observer{
 
         File reportFile = new File("GameReport.txt");
 
-        report.write(logs, reportFile , question, players);
+        report.write(logs, reportFile, questions, players);
 
          if(reportFile.exists()){
 

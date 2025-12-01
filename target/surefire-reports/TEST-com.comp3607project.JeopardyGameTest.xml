@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.comp3607project.JeopardyGameTest" time="0.078" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.comp3607project.JeopardyGameTest" time="0.231" tests="16" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="23"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\shemi\OOP2\jeopardy\target\test-classes;C:\Users\shemi\OOP2\jeopardy\target\classes;C:\Users\shemi\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\shemi\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\shemi\.m2\repository\com\opencsv\opencsv\5.9\opencsv-5.9.jar;C:\Users\shemi\.m2\repository\org\apache\commons\commons-lang3\3.13.0\commons-lang3-3.13.0.jar;C:\Users\shemi\.m2\repository\org\apache\commons\commons-text\1.11.0\commons-text-1.11.0.jar;C:\Users\shemi\.m2\repository\commons-beanutils\commons-beanutils\1.9.4\commons-beanutils-1.9.4.jar;C:\Users\shemi\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\shemi\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar;C:\Users\shemi\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\shemi\.m2\repository\javax\json\javax.json-api\1.1\javax.json-api-1.1.jar;C:\Users\shemi\.m2\repository\org\glassfish\javax.json\1.1\javax.json-1.1.jar;"/>
+    <property name="java.class.path" value="c:\Users\shemi\OOP2\jeopardy\target\test-classes;c:\Users\shemi\OOP2\jeopardy\target\classes;C:\Users\shemi\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\shemi\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\shemi\.m2\repository\com\opencsv\opencsv\5.9\opencsv-5.9.jar;C:\Users\shemi\.m2\repository\org\apache\commons\commons-lang3\3.13.0\commons-lang3-3.13.0.jar;C:\Users\shemi\.m2\repository\org\apache\commons\commons-text\1.11.0\commons-text-1.11.0.jar;C:\Users\shemi\.m2\repository\commons-beanutils\commons-beanutils\1.9.4\commons-beanutils-1.9.4.jar;C:\Users\shemi\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\shemi\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar;C:\Users\shemi\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\shemi\.m2\repository\javax\json\javax.json-api\1.1\javax.json-api-1.1.jar;C:\Users\shemi\.m2\repository\org\glassfish\javax.json\1.1\javax.json-1.1.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -12,13 +12,12 @@
     <property name="user.timezone" value="America/Port_of_Spain"/>
     <property name="os.name" value="Windows 11"/>
     <property name="java.vm.specification.version" value="23"/>
-    <property name="user.country" value="TT"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="TT"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-23\bin"/>
-    <property name="sun.java.command" value="C:\Users\shemi\AppData\Local\Temp\surefire15851768026073139450\surefirebooter14843164748069951782.jar C:\Users\shemi\AppData\Local\Temp\surefire15851768026073139450 2025-11-30T15-16-26_142-jvmRun1 surefire17777416603150012596tmp surefire_01012688236527673144tmp"/>
+    <property name="sun.java.command" value="C:\Users\shemi\AppData\Local\Temp\surefire9536328065247297901\surefirebooter3446755792461412957.jar C:\Users\shemi\AppData\Local\Temp\surefire9536328065247297901 2025-12-01T12-16-07_902-jvmRun1 surefire10630553636217825951tmp surefire_01039726387416056487tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="test" value="com.comp3607project.JeopardyGameTest#testReporting"/>
-    <property name="surefire.test.class.path" value="C:\Users\shemi\OOP2\jeopardy\target\test-classes;C:\Users\shemi\OOP2\jeopardy\target\classes;C:\Users\shemi\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\shemi\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\shemi\.m2\repository\com\opencsv\opencsv\5.9\opencsv-5.9.jar;C:\Users\shemi\.m2\repository\org\apache\commons\commons-lang3\3.13.0\commons-lang3-3.13.0.jar;C:\Users\shemi\.m2\repository\org\apache\commons\commons-text\1.11.0\commons-text-1.11.0.jar;C:\Users\shemi\.m2\repository\commons-beanutils\commons-beanutils\1.9.4\commons-beanutils-1.9.4.jar;C:\Users\shemi\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\shemi\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar;C:\Users\shemi\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\shemi\.m2\repository\javax\json\javax.json-api\1.1\javax.json-api-1.1.jar;C:\Users\shemi\.m2\repository\org\glassfish\javax.json\1.1\javax.json-1.1.jar;"/>
+    <property name="surefire.test.class.path" value="c:\Users\shemi\OOP2\jeopardy\target\test-classes;c:\Users\shemi\OOP2\jeopardy\target\classes;C:\Users\shemi\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\shemi\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\shemi\.m2\repository\com\opencsv\opencsv\5.9\opencsv-5.9.jar;C:\Users\shemi\.m2\repository\org\apache\commons\commons-lang3\3.13.0\commons-lang3-3.13.0.jar;C:\Users\shemi\.m2\repository\org\apache\commons\commons-text\1.11.0\commons-text-1.11.0.jar;C:\Users\shemi\.m2\repository\commons-beanutils\commons-beanutils\1.9.4\commons-beanutils-1.9.4.jar;C:\Users\shemi\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\shemi\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar;C:\Users\shemi\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\shemi\.m2\repository\javax\json\javax.json-api\1.1\javax.json-api-1.1.jar;C:\Users\shemi\.m2\repository\org\glassfish\javax.json\1.1\javax.json-1.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\shemi"/>
     <property name="user.language" value="en"/>
@@ -26,12 +25,12 @@
     <property name="java.version.date" value="2025-01-21"/>
     <property name="java.home" value="C:\Program Files\Java\jdk-23"/>
     <property name="file.separator" value="\"/>
-    <property name="basedir" value="C:\Users\shemi\OOP2\jeopardy"/>
+    <property name="basedir" value="c:\Users\shemi\OOP2\jeopardy"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\shemi\AppData\Local\Temp\surefire15851768026073139450\surefirebooter14843164748069951782.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\shemi\AppData\Local\Temp\surefire9536328065247297901\surefirebooter3446755792461412957.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="23.0.2+7-58"/>
@@ -42,17 +41,16 @@
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
-    <property name="maven.ext.class.path" value="C:\Users\shemi\.vscode\extensions\oracle.oracle-java-24.1.2\nbcode\java\maven-nblib\netbeans-eventspy.jar"/>
     <property name="localRepository" value="C:\Users\shemi\.m2\repository"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\shemi\AppData\Local\Temp\"/>
     <property name="java.version" value="23.0.2"/>
-    <property name="user.dir" value="C:\Users\shemi\OOP2\jeopardy"/>
+    <property name="user.dir" value="c:\Users\shemi\OOP2\jeopardy"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="native.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-23\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\shemi\AppData\Local\Microsoft\WindowsApps\python.exe;C:\Users\shemi\AppData\Local\Microsoft\WindowsApps\python.exe\Scripts;C:\Users\shemi\AppData\Roaming\apache-maven-3.9.11\bin;C:\Users\shemi\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\shemi\AppData\Local\Programs\Python\Python313\;C:\Users\shemi\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\shemi\AppData\Local\Programs\Python\Python39\;C:\Users\shemi\AppData\Local\Microsoft\WindowsApps;C:\Users\shemi\AppData\Local\Programs\Microsoft VS Code\bin;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-23\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;c:\Users\shemi\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;c:\Users\shemi\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\copilotCli;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\shemi\AppData\Local\Microsoft\WindowsApps\python.exe;C:\Users\shemi\AppData\Local\Microsoft\WindowsApps\python.exe\Scripts;C:\Users\shemi\AppData\Roaming\apache-maven-3.9.11\bin;C:\Users\shemi\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\shemi\AppData\Local\Programs\Python\Python313\;C:\Users\shemi\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\shemi\AppData\Local\Programs\Python\Python39\;C:\Users\shemi\AppData\Local\Microsoft\WindowsApps;C:\Users\shemi\AppData\Local\Programs\Microsoft VS Code\bin;c:\Users\shemi\.vscode\extensions\vscjava.vscode-java-debug-0.58.3\bundled\scripts\noConfigScripts;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="stderr.encoding" value="Cp1252"/>
     <property name="java.vendor" value="Oracle Corporation"/>
@@ -60,5 +58,20 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="67.0"/>
   </properties>
-  <testcase name="testReporting" classname="com.comp3607project.JeopardyGameTest" time="0.036"/>
+  <testcase name="testInvaildQuestion" classname="com.comp3607project.JeopardyGameTest" time="0.05"/>
+  <testcase name="testCheckIfEmpty" classname="com.comp3607project.JeopardyGameTest" time="0.005"/>
+  <testcase name="testCSVHandlerValidFile" classname="com.comp3607project.JeopardyGameTest" time="0.021"/>
+  <testcase name="testInvalidCategory" classname="com.comp3607project.JeopardyGameTest" time="0.003"/>
+  <testcase name="testLoadGameContent" classname="com.comp3607project.JeopardyGameTest" time="0.004"/>
+  <testcase name="testXMLHandlerValidFile" classname="com.comp3607project.JeopardyGameTest" time="0.007"/>
+  <testcase name="testRemoveScore" classname="com.comp3607project.JeopardyGameTest" time="0.002"/>
+  <testcase name="testValidValue" classname="com.comp3607project.JeopardyGameTest" time="0.005"/>
+  <testcase name="testAddScore" classname="com.comp3607project.JeopardyGameTest" time="0"/>
+  <testcase name="testLogging" classname="com.comp3607project.JeopardyGameTest" time="0.029"/>
+  <testcase name="testReporting" classname="com.comp3607project.JeopardyGameTest" time="0.008"/>
+  <testcase name="testVaildQuestion" classname="com.comp3607project.JeopardyGameTest" time="0.005"/>
+  <testcase name="testJSONHandlerValidFile" classname="com.comp3607project.JeopardyGameTest" time="0.038"/>
+  <testcase name="testValidCategory" classname="com.comp3607project.JeopardyGameTest" time="0.002"/>
+  <testcase name="testInvalidValue" classname="com.comp3607project.JeopardyGameTest" time="0.005"/>
+  <testcase name="testMarkAsAnswered" classname="com.comp3607project.JeopardyGameTest" time="0.006"/>
 </testsuite>
