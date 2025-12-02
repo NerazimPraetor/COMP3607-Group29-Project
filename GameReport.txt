@@ -3,11 +3,30 @@ JEOPARDY PROGRAMMING GAME REPORT
 
 Case ID: Game001
 
-Players:shem1,shem2,shem3
+Players:shem1,shem2
 
 GamePlay Summary:
 -----------------
+Turn 1: shem1 selected functions for 100 pts
+Question: Which keyword is used to define a function returning no value?
+Answer: void - Correct (+100pts)
+Score After Turn: shem1 = 100
+
+Turn 2: shem2 selected arrays for 300 pts
+Question: Which loop is best for iterating a fixed-size array?
+Answer: for - Correct (+300pts)
+Score After Turn: shem2 = 300
+
+Turn 3: shem1 selected arrays for 100 pts
+Question: Which declares an array of 5 integers?
+Answer: int arr[5]; - Correct (+100pts)
+Score After Turn: shem1 = 200
+
+Turn 4: shem2 selected functions for 300 pts
+Question: What is the return type of int add(int a, int b)?
+Answer: int - Correct (+300pts)
+Score After Turn: shem2 = 600
+
 Final Scores: 
-shem1: 0
-shem2: 0
-shem3: 0
+shem1: 200
+shem2: 600

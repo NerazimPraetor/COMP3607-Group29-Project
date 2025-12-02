@@ -140,6 +140,55 @@ public class GameManager{
         return null;
     }
 
+    public String getAnswerAsString(char ans, GameContent question){
+
+        String answerAsString = "";
+        
+        switch(Character.toUpperCase(ans)){
+
+            case'A' :
+                answerAsString = question.getA();
+                break;
+            case'B':
+                answerAsString = question.getB();
+                break;
+            
+            case'C':
+                answerAsString = question.getC();
+                break;
+            case'D':
+                answerAsString = question.getD();
+                break;
+        }
+
+        return answerAsString;
+    }
+
+    public String getResult(GameContent question, char ans, int value, String c, Player p){
+
+        String result;
+
+        if (Character.toUpperCase(question.getAnswer()) == Character.toUpperCase(ans)){
+
+            System.out.println("Correct!! You have earned " + value + " points.");
+            p.addPoints(value);
+
+            markAsAnswered(question, c.trim().toLowerCase());
+            result = "Correct";
+           
+        }else{
+
+            System.out.println("Sorry incorrect answer. You have lost " + value + " points.");
+            p.removePoints(value);
+
+            markAsAnswered(question, c.trim().toLowerCase());
+            result = "Incorrect";
+            
+        }
+
+        return result;
+    }
+
     public void markAsAnswered(GameContent q, String c){
         
         answeredContents.add(q);

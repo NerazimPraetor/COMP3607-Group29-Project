@@ -174,7 +174,7 @@ public class Game implements Subject{
         char answerAsChar = scanner.next().charAt(0);
         scanner.nextLine();
 
-        String answerAsString = getAnswerAsString(answerAsChar, question);
+        String answerAsString = manager.getAnswerAsString(answerAsChar, question);
 
         if(Character.toUpperCase(answerAsChar) == 'Q'){
             System.out.println("You have decided to quit.");
@@ -182,61 +182,13 @@ public class Game implements Subject{
             return;
         }
             
-        String result = getResult(question, answerAsChar, value, c, p);
+        String result = manager.getResult(question, answerAsChar, value, c, p);
     
         log = new LogData(caseID, playerID, "Answer Question", LocalDateTime.now(), c, value , answerAsString, result, p.getScore());
         notify(log);
 
     }
-
-    public String getAnswerAsString(char ans, GameContent question){
-
-        String answerAsString = "";
-        
-        switch(Character.toUpperCase(ans)){
-
-            case'A' :
-                answerAsString = question.getA();
-                break;
-            case'B':
-                answerAsString = question.getB();
-                break;
-            
-            case'C':
-                answerAsString = question.getC();
-                break;
-            case'D':
-                answerAsString = question.getD();
-                break;
-        }
-
-        return answerAsString;
-    }
-
-    public String getResult(GameContent question, char ans, int value, String c, Player p){
-
-        String result;
-
-        if (Character.toUpperCase(question.getAnswer()) == Character.toUpperCase(ans)){
-
-            System.out.println("Correct!! You have earned " + value + " points.");
-            p.addPoints(value);
-
-            manager.markAsAnswered(question, c.trim().toLowerCase());
-            result = "Correct";
-           
-        }else{
-
-            System.out.println("Sorry incorrect answer. You have lost " + value + " points.");
-            p.removePoints(value);
-
-            manager.markAsAnswered(question, c.trim().toLowerCase());
-            result = "Incorrect";
-            
-        }
-
-        return result;
-    }
+    
 
     public void endGame(){
 
